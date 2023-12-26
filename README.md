@@ -11,25 +11,25 @@ wait(1)
 
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 
-if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-	repeat wait()
-		if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
-			if _G.Team == "Pirate" then
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			elseif _G.Team == "Marine" then
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			else
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			end
-		end
-	until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
-end
+-- if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+-- 	repeat wait()
+-- 		if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+-- 			if _G.Team == "Pirate" then
+-- 				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+-- 					v.Function()
+-- 				end
+-- 			elseif _G.Team == "Marine" then
+-- 				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+-- 					v.Function()
+-- 				end
+-- 			else
+-- 				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+-- 					v.Function()
+-- 				end
+-- 			end
+-- 		end
+-- 	until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+-- end
 
 function deleteeffect()
 	pcall(function()
@@ -244,9 +244,39 @@ getgenv().SettingDefault = {
 local foldername = "RIPPER HUB [V3 Script]"
 local filename = game.Players.LocalPlayer.Name.."_BF_Config.json"
 
+-- function 
+-- 	local HttpService = game:GetService("HttpService")
+-- 	if (writefile) then
+-- 		if isfolder(foldername) then
+-- 			if isfile(foldername.."\\"..filename) then
+-- 				writefile(foldername.."\\"..filename, HttpService:JSONEncode(getgenv().Setting))
+-- 				print("Save")
+-- 			else
+-- 				print("Create File")
+-- 				writefile(foldername.."\\"..filename, HttpService:JSONEncode(getgenv().SettingDefault))
+-- 			end
+-- 		else
+-- 			print("Create Folder")
+-- 			makefolder(foldername)
+-- 			writefile(foldername.."\\"..filename, HttpService:JSONEncode(getgenv().SettingDefault))
+-- 		end
+-- 	end
+-- end
+
+-- function loadSettings()
+-- 	local HttpService = game:GetService("HttpService")
+-- 	if getgenv().Setting then else
+-- 		if isfile(foldername.."\\"..filename) then
+-- 			getgenv().Setting = HttpService:JSONDecode(readfile(foldername.."\\"..filename))
+-- 		end
+-- 	end
+-- end
+
+
+
 print("loading")
 
--- loadSettings()
+loadSettings()
 
 print("loaded")
 
